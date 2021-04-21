@@ -18,12 +18,13 @@ def get_mock_config():
     },
     "ContextMenus": {
         "Manti": {
-            "url": "http://meitarimds:5002/api/BankPkudot/groupBy?filter={\"AdaptorId\": \"MTCS\", \"category\": \"Tsirkel\"}&MENU_TYPE=BY_LAYERID",
-            "path": "Manti",
-            "status": 1,
-            "configuration": {
+            "url" :  "http://meitarimds:5002/api/BankPkudot/groupBy?",
+            "path" : "Manti",
+            "status" : 1,
+            "configuration" : {
                 "commandApiAddress": "http://meitarimds:2210/api/commands",
-                "mockUpApiAddress": "http://meitarimds:5002/api/MockupData/byName?name="
+                "mockUpApiAddress": "http://meitarimds:5002/api/MockupData/byName?name=",
+                "pkudatItemByIdAddress": "http://meitarimds:5002/api/BankPkudot/pkudaById?id="
             }
         },
         "Junctions": {
@@ -224,6 +225,24 @@ def get_mock_config():
                 "IsOpen": 0
             },
             {
+                "Id": 14,
+                "ToolName": "Geofiles",
+                "ToolTip": "GEOFILES",
+                "ToolIcon": "radar",
+                "ToolActionInvoker": "",
+                "ToolInvokerType": 0,
+                "ToolTypeID": 1,
+                "OnCreate": "default",
+                "OnDestroy": "default",
+                "ToolParams": "",
+                "ToolLocation": "",
+                "Order": 1,
+                "IsAGroup": 0,
+                "ToolGroupId": 0,
+                "ToolContainer": "TopNav",
+                "IsOpen": 0
+            },
+            {
                 "Id": 11,
                 "ToolName": "Screenshooter",
                 "ToolTip": "תצלום מסך",
@@ -300,8 +319,20 @@ def get_mock_config():
         "attributeValue": "value",
         "description": "change is MTCS.Units attribute(s)"
     },
+    "API" : {
+    "geoserver": "http://meitarimdb:8080/geoserver/Jeru/",
+    "auth" : "http://localhost:8040/auth/login",
+    "geofiles" : "http://localhost:8050/files",
+    "users-layers" : "http://localhost:8060/layers",
+    "metaData" : "http://meitarimdb:5001/MetaData/getMetaData/"
+    },
     "metaDataApi": {
         "url": "https://localhost:5001/MetaData/getMetaData/"
+    },
+    "Auth": {
+    "headerName": "access-token",
+    "headerType": "bearer",
+    "headerRequestId" : "x-Request-id"
     },
     "mantiLayerUrl": "http://localhost:8080/geoserver/Jeru/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Jeru%3Amanti_intersections&maxFeatures=500&outputFormat=application%2Fjson",
     "geoserverUrl": "http://localhost:8080/geoserver/Jeru/",
