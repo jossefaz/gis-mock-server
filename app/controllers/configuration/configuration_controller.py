@@ -320,21 +320,17 @@ def get_mock_config():
         "description": "change is MTCS.Units attribute(s)"
     },
     "API" : {
-    "geoserver": "http://meitarimdb:8080/geoserver/Jeru/",
-    "auth" : "http://localhost:8040/auth/login",
-    "geofiles" : "http://localhost:8050/files",
-    "users-layers" : "http://localhost:8060/layers",
-    "metaData" : "http://meitarimdb:5001/MetaData/getMetaData/"
-    },
-    "metaDataApi": {
-        "url": "https://localhost:5001/MetaData/getMetaData/"
+        "geoserver": "http://localhost:8080/geoserver/",
+        "auth" : "http://localhost:8040/auth/login",
+        "geofiles" : "http://localhost:8050/files",
+        "users-layers" : "http://localhost:8060/layers",
+        "metaData" : "http://localhost:8020/MetaData/getMetaData/"
     },
     "Auth": {
-    "headerName": "access-token",
-    "headerType": "bearer",
-    "headerRequestId" : "x-Request-id"
+        "headerName": "token",
+        "headerType": "bearer",
+        "headerRequestId" : "x-Request-id"
     },
     "mantiLayerUrl": "http://localhost:8080/geoserver/Jeru/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Jeru%3Amanti_intersections&maxFeatures=500&outputFormat=application%2Fjson",
-    "geoserverUrl": "http://localhost:8080/geoserver/Jeru/",
     "authUrl" : "http://localhost:8040/auth/login"
 }
