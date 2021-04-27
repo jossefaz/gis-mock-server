@@ -34,84 +34,6 @@ def get_mock_config():
             "configuration": {}
         }
     },
-    "SearchConfigs": [
-        {
-            "name": "חיפוש לדוגמא",
-            "type": "OBJ_ARRAY",
-            "field": "field1",
-            "itemTitlePrefix": "לפני_",
-            "itemTitleField": "field3",
-            "itemTitlePostfix": "_אחרי",
-            "data": [
-                {
-                    "field1": "שלום כיתה א",
-                    "field2": 12,
-                    "field3": "ערך 1",
-                    "X": 222000,
-                    "Y": 630000
-                },
-                {
-                    "field1": "וגם כיתה ב",
-                    "field2": 15,
-                    "field3": "ערך 2",
-                    "X": 222010,
-                    "Y": 630050
-                },
-                {
-                    "field1": "ואולי גם ג",
-                    "field2": 17,
-                    "field3": "ערך 3",
-                    "X": 222020,
-                    "Y": 630070
-                }
-            ]
-        },
-        {
-            "name": "חיפוש אחר",
-            "type": "OBJ_ARRAY",
-            "field": "field1",
-            "itemTitlePrefix": "לפני_",
-            "itemTitleField": "field3",
-            "itemTitlePostfix": "_אחרי",
-            "data": [
-                {
-                    "field1": "מה נשמע בכיתה",
-                    "field2": 12,
-                    "field3": "ערך 4",
-                    "X": 222000,
-                    "Y": 630000
-                },
-                {
-                    "field1": "ימי קורונה",
-                    "field2": 15,
-                    "field3": "ערך 5",
-                    "X": 222010,
-                    "Y": 630050
-                },
-                {
-                    "field1": "וימי אביב",
-                    "field2": 17,
-                    "field3": "ערך 6",
-                    "X": 222020,
-                    "Y": 630070
-                }
-            ]
-        }
-    ],
-    "layers": [
-        {
-            "id": 1,
-            "name": "dimigcompile",
-            "alias": "שכבה לדוגמא",
-            "url": "http://localhost:8080/geoserver/Jeru/wms",
-            "params": {
-                "LAYERS": "Jeru:dimigcompile"
-            },
-            "serverType": "geoserver",
-            "visible": 1,
-            "selectable": 1
-        }
-    ],
     "Widgets": {
         "tools": [
             {
@@ -307,30 +229,43 @@ def get_mock_config():
             }
         ]
     },
-    "channels": {
-        "name": "MTCS.Units PubSub Channel",
-        "type": "PubSub",
-        "Channel": "MTCS.Units",
-        "reduxTarget": "units",
-        "reduxFunction": "UPDATE_FEATURE_ATTRIBUTES",
-        "idSourceKey": "id",
-        "atrributeListKey": "changes",
-        "attributeKey": "field-name",
-        "attributeValue": "value",
-        "description": "change is MTCS.Units attribute(s)"
-    },
+   "channels": [{
+    "name": "MTCS.Units PubSub Channel",
+    "type": "PubSub",
+    "Channel": "MTCS.Units",
+    "reduxTarget": "units",
+    "reduxFunction": "UPDATE_FEATURE_ATTRIBUTES",
+    "description": "change is MTCS.Units attribute(s)"
+  },
+  {
+    "name": "MATIS.BTLinks PubSub Channel",
+    "type": "PubSub",
+    "Channel": "MATIS.BTLinks",
+    "reduxTarget": "matisLinks",
+    "reduxFunction": "UPDATE_FEATURE_ATTRIBUTES",    
+    "messageItemIdFieldName" : "id",  
+    "description": "change is MATIS.BTLinks attribute(s)"
+  },
+  {
+    "name": "MATIS.BTUnits PubSub Channel",
+    "type": "PubSub",
+    "Channel": "MATIS.BTUnits",
+    "reduxTarget": "matisUnits",
+    "reduxFunction": "UPDATE_FEATURE_ATTRIBUTES",  
+    "messageItemIdFieldName" : "id",        
+    "description": "change is MATIS.BTUnits attribute(s)"
+  }],
     "API" : {
-        "geoserver": "http://localhost:8080/geoserver/",
-        "auth" : "http://localhost:8040/auth/login",
-        "geofiles" : "http://localhost:8050/files",
-        "users-layers" : "http://localhost:8060/layers",
-        "metaData" : "http://localhost:8020/MetaData/getMetaData/"
+        "geoserver": "http://meitarimdb:8080/geoserver/",
+        "auth" : "http://meitarimdb:8040/auth/login",
+        "geofiles" : "http://meitarimdb:8050/files",
+        "users-layers" : "http://meitarimdb:8060/layers",
+        "metaData" : "http://meitarimdb:5001/MetaData/getMetaData/"
     },
     "Auth": {
         "headerName": "token",
         "headerType": "bearer",
         "headerRequestId" : "x-Request-id"
     },
-    "mantiLayerUrl": "http://localhost:8080/geoserver/Jeru/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Jeru%3Amanti_intersections&maxFeatures=500&outputFormat=application%2Fjson",
-    "authUrl" : "http://localhost:8040/auth/login"
+    "mantiLayerUrl": "http://meitarimdb:8080/geoserver/Jeru/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Jeru%3Amanti_intersections&maxFeatures=500&outputFormat=application%2Fjson",
 }
