@@ -260,7 +260,7 @@ def get_mock_config():
         "auth" : "http://meitarimdb:8040/auth/login",
         "geofiles" : "http://meitarimdb:8050/files",
         "users-layers" : "http://meitarimdb:8060/layers",
-        "metaData" : "http://meitarimdb:8020/MetaData/getMetaData/"
+        "metaData" : "http://meitarimdb:5001/MetaData/getMetaData/"
     },
     "Auth": {
         "headerName": "token",
@@ -269,3 +269,4 @@ def get_mock_config():
     },
     "mantiLayerUrl": "http://meitarimdb:8080/geoserver/Jeru/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Jeru%3Amanti_intersections&maxFeatures=500&outputFormat=application%2Fjson",
 }
+
