@@ -229,7 +229,7 @@ def get_mock_config():
             }
         ]
     },
-   "channels": [{
+"channels": [{
     "name": "MTCS.Units PubSub Channel",
     "type": "PubSub",
     "Channel": "MTCS.Units",
@@ -241,7 +241,7 @@ def get_mock_config():
     "name": "MATIS.BTLinks PubSub Channel",
     "type": "PubSub",
     "Channel": "MATIS.BTLinks",
-    "reduxTarget": "matisLinks",
+    "reduxTarget": "matis_links",
     "reduxFunction": "UPDATE_FEATURE_ATTRIBUTES",    
     "messageItemIdFieldName" : "id",  
     "description": "change is MATIS.BTLinks attribute(s)"
@@ -250,7 +250,7 @@ def get_mock_config():
     "name": "MATIS.BTUnits PubSub Channel",
     "type": "PubSub",
     "Channel": "MATIS.BTUnits",
-    "reduxTarget": "matisUnits",
+    "reduxTarget": "matis_units",
     "reduxFunction": "UPDATE_FEATURE_ATTRIBUTES",  
     "messageItemIdFieldName" : "id",        
     "description": "change is MATIS.BTUnits attribute(s)"
@@ -260,7 +260,7 @@ def get_mock_config():
         "auth" : "http://meitarimdb:8040/auth/login",
         "geofiles" : "http://meitarimdb:8050/files",
         "users-layers" : "http://meitarimdb:8060/layers",
-        "metaData" : "http://meitarimdb:5001/MetaData/getMetaData/"
+        "metaData" : "http://meitarimdb:8020/MetaData/getMetaData/"
     },
     "Auth": {
         "headerName": "token",
