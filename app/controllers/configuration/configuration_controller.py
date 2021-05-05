@@ -35,6 +35,9 @@ def get_mock_config():
         }
     },
     "Widgets": {
+        "sideMenu" : {
+            "toolOrder" : ["BaseMapGallery","Identify","MeasureDistance","Draw","Legend","Coordinates","Geofiles","Screenshooter"]
+        },
         "tools": [
             {
                 "Id": 1,
@@ -58,7 +61,7 @@ def get_mock_config():
             {
                 "Id": 4,
                 "ToolName": "Identify",
-                "ToolTip": "בחירת יישות",
+                "ToolTip": "מידע יישות",
                 "ToolIcon": "dashed-square-arrow",
                 "ToolActionInvoker": "",
                 "ToolInvokerType": 0,
@@ -183,7 +186,7 @@ def get_mock_config():
                 "IsOpen": 0
             },
             {
-                "Id": 13,
+                "Id": 19,
                 "ToolName": "TestTableOfFeature",
                 "ToolTip": "טבלת נתונים",
                 "ToolIcon": "table",
@@ -232,16 +235,30 @@ def get_mock_config():
 "channels": [{
     "name": "MTCS.Units PubSub Channel",
     "type": "PubSub",
-    "Channel": "MTCS.Units",
-    "reduxTarget": "units",
+    "Channel": "MTCS.units",
+    "system":"MTCS",
+    "branch" : "units",
+    "reduxTarget": "manti_intersections",
     "reduxFunction": "UPDATE_FEATURE_ATTRIBUTES",
+     "messageItemIdFieldName" : "id",  
     "description": "change is MTCS.Units attribute(s)"
+  },
+  {
+    "name": "FALCON.Units PubSub Channel",
+    "type": "PubSub",
+    "Channel": "FALCON.units",
+    "system":"FALCON",
+    "branch" : "units",  
+    "reduxFunction": "UPDATE_FEATURE_ATTRIBUTES",
+     "messageItemIdFieldName" : "id",  
+    "description": "change is FALCON.Units attribute(s)"
   },
   {
     "name": "MATIS.BTLinks PubSub Channel",
     "type": "PubSub",
     "Channel": "MATIS.BTLinks",
-    "reduxTarget": "matis_links",
+    "system":"MATIS",
+    "branch" : "BTLinks",    
     "reduxFunction": "UPDATE_FEATURE_ATTRIBUTES",    
     "messageItemIdFieldName" : "id",  
     "description": "change is MATIS.BTLinks attribute(s)"
@@ -250,7 +267,8 @@ def get_mock_config():
     "name": "MATIS.BTUnits PubSub Channel",
     "type": "PubSub",
     "Channel": "MATIS.BTUnits",
-    "reduxTarget": "matis_units",
+    "system":"MATIS",
+    "branch" : "BTUnits",    
     "reduxFunction": "UPDATE_FEATURE_ATTRIBUTES",  
     "messageItemIdFieldName" : "id",        
     "description": "change is MATIS.BTUnits attribute(s)"
@@ -267,6 +285,6 @@ def get_mock_config():
         "headerType": "bearer",
         "headerRequestId" : "x-Request-id"
     },
-    "mantiLayerUrl": "http://meitarimdb:8080/geoserver/Jeru/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Jeru%3Amanti_intersections&maxFeatures=500&outputFormat=application%2Fjson",
+    "mantiLayerUrl": "http://localhost:8080/geoserver/Jeru/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=Jeru%3Amanti_intersections&maxFeatures=500&outputFormat=application%2Fjson",
 }
 
